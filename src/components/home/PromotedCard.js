@@ -24,7 +24,7 @@ const PromotedCard = () => {
       <View style={[styles.wave, {...theme.SHADOW}]}>
         <Image
           style={{
-            width: responsiveWidth(90),
+            width: responsiveWidth(95),
             height: responsiveHeight(10),
             borderBottomLeftRadius: theme.SIZES.cardBorderRadius,
             borderBottomRightRadius: theme.SIZES.cardBorderRadius,
@@ -50,7 +50,7 @@ export default PromotedCard;
 const styles = StyleSheet.create({
   container: {
     height: responsiveHeight(20),
-    width: responsiveWidth(90),
+    width: responsiveWidth(95),
     backgroundColor: theme.COLORS.lightGray,
     alignSelf: 'center',
     borderRadius: theme.SIZES.cardBorderRadius,
@@ -58,9 +58,8 @@ const styles = StyleSheet.create({
   wave: {
     position: 'absolute',
     justifyContent: 'center',
-    alignItems: 'center',
     bottom: 0,
-    width: responsiveWidth(90),
+    width: responsiveWidth(100),
     height: responsiveHeight(10),
   },
   car: {

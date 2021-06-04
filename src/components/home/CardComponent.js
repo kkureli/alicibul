@@ -35,22 +35,13 @@ const CardComponent = ({item, index}) => {
   };
   if (item.advertisement) {
     return (
-      <TouchableOpacity
-        style={[styles.container, {height: responsiveHeight(15)}]}>
+      <TouchableOpacity style={[styles.adContainer]}>
         <Image style={styles.image} source={item.image} />
         <Image
           source={require('../../../assets/images/homeCards/orangeCover.png')}
-          style={[
-            {
-              top: 15,
-              left: 14,
-              position: 'absolute',
-              width: responsiveWidth(44),
-              minHeight: responsiveHeight(20),
-              zIndex: 999,
-            },
-          ]}
+          style={styles.coverOrangeImage}
         />
+
         <View style={[styles.titles, {[item.titlePosition]: 30}]}>
           <Typography bold color="white">
             {item.title}
@@ -63,8 +54,14 @@ const CardComponent = ({item, index}) => {
     );
   } else {
     return (
-      <TouchableOpacity style={[styles.container]}>
-        <View>
+      <TouchableOpacity
+        style={[
+          styles.container,
+          {
+            top: index === 3 || index !== 0 ? -responsiveHeight(8) : 0,
+          },
+        ]}>
+        <View style={{height: responsiveHeight(22)}}>
           <Image style={styles.image} source={item.image} />
           {item.logo && <Image style={styles.logo} source={item.logo} />}
         </View>
@@ -138,32 +135,47 @@ export default CardComponent;
 const styles = StyleSheet.create({
   container: {
     borderRadius: 5,
-    marginVertical: 5,
+    marginTop: 10,
     flex: 1,
-    minHeight: responsiveHeight(20),
-    width: responsiveWidth(44),
+    // backgroundColor: 'red',
+  },
+  adContainer: {
+    borderRadius: 5,
+    marginTop: 10,
+    flex: 1,
+    height: responsiveHeight(24),
+    width: responsiveWidth(45),
+    // backgroundColor: 'red',
   },
   image: {
-    width: responsiveWidth(44),
+    width: responsiveWidth(45),
     zIndex: 999,
-    minHeight: responsiveHeight(18),
+    height: responsiveHeight(22),
     borderRadius: 5,
-    bottom: -13,
     alignSelf: 'center',
-    resizeMode: 'contain',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
+    // backgroundColor: 'red',
+  },
+  coverOrangeImage: {
+    position: 'absolute',
+    width: responsiveWidth(45),
+    height: responsiveHeight(25.6),
+    alignSelf: 'center',
+    borderRadius: 5,
+    zIndex: 999,
   },
   logo: {
     position: 'absolute',
-    bottom: 5,
+    bottom: 10,
     left: 20,
     zIndex: 999,
     backgroundColor: 'rgba(232, 232, 232, 0.5)',
     borderRadius: 10,
   },
   bottomContainer: {
-    width: responsiveWidth(42),
+    width: responsiveWidth(45),
+    height: responsiveHeight(10),
     alignSelf: 'center',
     backgroundColor: 'white',
     borderBottomLeftRadius: 5,
@@ -184,8 +196,8 @@ const styles = StyleSheet.create({
   heartIcon: {
     position: 'absolute',
     zIndex: 99999,
-    top: 25,
-    right: 25,
+    top: 15,
+    right: 20,
   },
 });
 
